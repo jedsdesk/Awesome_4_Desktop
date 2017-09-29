@@ -89,9 +89,8 @@ ${font Droid Sans Mono:size=7}${color2}PCIe: $alignr$color ${nvidia pcieutil}%
 
 
 
-
 # CPU
-${image /home/msjche/.config/awesome/conky/cpu.png -p 23,245 -s 35x35 }
+${image /home/msjche/.config/awesome/conky/cpu.png -p 23,235 -s 35x35 }
 #${font xirod:Bold:size=14}${color1}${alignc}CPU$font$color
 ${color1}${cpubar cpu1}${color}
 ${voffset -13}${color6}${execbar echo 0}
@@ -133,7 +132,7 @@ $color6${cpugraph cpu6 20,38 1793D0 1793D0} ${alignr}${cpugraph cpu7 20,38 1793D
 
 
 # MEMORY
-${image /home/msjche/.config/awesome/conky/ram.png -p 23,737 -s 35x17 }
+${image /home/msjche/.config/awesome/conky/ram.png -p 23,725 -s 35x17 }
 #${font xirod:Bold:size=13}${color1}${alignc}MEM$color$font
 #${font Droid Sans:size=7}MEMORY
 ${color2}$mem / $memmax
@@ -149,7 +148,7 @@ ${voffset -12}${color6}${execbar echo 0}
 
 
 ## HDD
-${image /home/msjche/.config/awesome/conky/hard_drive.png -p 23,805 -s 35x35 }
+${image /home/msjche/.config/awesome/conky/hard_drive.png -p 23,795 -s 35x35 }
 #${font xirod:Bold:size=12}${color1}${alignc}DISK$font$color
 ${color5}/dev/sda
 ${font Droid Sans Mono:size=7}${color2}Read:$diskio_read
@@ -174,7 +173,7 @@ ${voffset -13}${color6}${execbar echo 0}$color
 
 
 ## NETWORK
-${image /home/msjche/.config/awesome/conky/network.png -p 23,1005 -s 35x35 }
+${image /home/msjche/.config/awesome/conky/network.png -p 23,993 -s 35x35 }
 #${font xirod:Bold:size=14}${color1}${alignc}NET$color$font
 ${font Droid Sans:size=6}Int:  $gw_iface
 #Public IP${alignr} NOPE;)
