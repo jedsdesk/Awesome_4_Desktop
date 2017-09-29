@@ -34,21 +34,22 @@ own_window_argb_visual yes
 own_window_argb_value 0
 
 alignment top_left
-gap_y 90
+gap_y 130
 gap_x 0 
 border_inner_margin 2
 draw_outline no
 draw_borders no
+draw_graph_borders no
 
-maximum_width 68 
+maximum_width 79
 minimum_height 2500
 
 #default_graph_width=70
 #default_graph_height=33
 #default_bar_width=70
 #default_bar_height=12
-default_bar_size 70 12
-default_graph_size 70 33 
+default_bar_size 79 12
+default_graph_size 79 33 
 
 default_color DEDEDE
 color1 1793D0
@@ -60,24 +61,32 @@ color6 757575
 
 TEXT
 #${image /home/msjche/.config/awesome/conky/arch.png -s 70x60 }
-${font xirod:Bold:size=10}${color1}${alignc}ARCH${color}$font
+#${font xirod:Bold:size=10}${color1}${alignc}ARCH${color}$font
 
 # SYS
-#Uptime $alignr $uptime
+${color2}Uptime: $color$alignr $uptime
 #User(s) $alignr $user_names
 #Active Consoles $alignr $user_terms
-#$sysname $kernel $alignr $machine
+${font Droid Sans Mono:size=7}${color1}$kernel $alignr $machine
 #NVidia Optimus: $alignr${execi 60 cat /proc/acpi/bbswitch | awk '{print $2}'}
 #AC Status $alignr$acpiacadapter ${battery BAT1}
 #AC Status $alignr${battery BAT1}
 #Battery Temp $alignr$acpitemp°C
-#Temp 
-#${exec sensors | grep Core\ 3 | awk '{print $3}'}
-#Updates $alignr Pacman: ${execp cat /tmp/off.updates | wc -l}
-#$alignr AUR: ${execp cat /tmp/aur.updates | wc -l}
+${color2}Temp: $color${exec sensors | grep Core\ 3 | awk '{print $3}'}
+
+${font Droid Sans Mono:size=9}${color1}${alignc}Updates$color
+${font Droid Sans Mono:size=7}${color2}Pacman: 		 $color${execp cat /tmp/off.updates | wc -l}
+${font Droid Sans Mono:size=7}${color2}AUR:    		 $color${execp cat /tmp/aur.updates | wc -l}
 
 
 
+
+# NVIDIA
+${image /home/msjche/.config/awesome/conky/NVIDIA.png -p 23,140 -s 35x35 }
+${font Droid Sans Mono:size=7}${color2}GPU: $alignr$color ${nvidia gpuutil}%
+${font Droid Sans Mono:size=7}${color2}RAM: $alignr$color ${nvidia membwutil}%
+${font Droid Sans Mono:size=7}${color2}VIDEO: $alignr$color ${nvidia videoutil}%
+${font Droid Sans Mono:size=7}${color2}PCIe: $alignr$color ${nvidia pcieutil}%
 
 # CPU
 ${font xirod:Bold:size=14}${color1}${alignc}CPU$font$color
@@ -95,38 +104,33 @@ ${color6}${cpubar cpu10}${color}
 ${color6}${cpubar cpu11}${color}
 ${color6}${cpubar cpu12}${color}
 ${font Droid Sans:size=6}
-Core 2${alignr}Core 2
-${cpugraph cpu1 20,33 000000 757575} ${alignr}${cpugraph cpu2 20,33 000000 757575}
+${color2}Core 2${alignr}Core 2
+${cpugraph cpu1 20,38 1793D0 1793D0} ${alignr}${cpugraph cpu2 20,38 1793D0 1793D0}
 Core 3${alignr}Core 4
-${cpugraph cpu3 20,33 000000 757575} ${alignr}${cpugraph cpu4 20,33 000000 757575}
+${cpugraph cpu3 20,38 1793D0 1793D0} ${alignr}${cpugraph cpu4 20,38 1793D0 1793D0}
 Core 5${alignr}Core 6
-${cpugraph cpu4 20,33 000000 757575} ${alignr}${cpugraph cpu5 20,33 000000 757575}
+${cpugraph cpu4 20,38 1793D0 1793D0} ${alignr}${cpugraph cpu5 20,38 1793D0 1793D0}
 Core 7${alignr}Core 8
-${cpugraph cpu6 20,33 000000 757575} ${alignr}${cpugraph cpu7 20,33 000000 757575}
+${cpugraph cpu6 20,38 1793D0 1793D0} ${alignr}${cpugraph cpu7 20,38 1793D0 1793D0}
 Core 9${alignr}Core 10
-${cpugraph cpu6 20,33 000000 757575} ${alignr}${cpugraph cpu7 20,33 000000 757575}
+${cpugraph cpu6 20,38 1793E0 1793D0} ${alignr}${cpugraph cpu7 20,38 1793D0 1793D0}
 Core 11${alignr}Core 12
-${cpugraph cpu6 20,33 000000 757575} ${alignr}${cpugraph cpu7 20,33 000000 757575}
+${cpugraph cpu6 20,38 1793D0 1793D0} ${alignr}${cpugraph cpu7 20,38 1793D0 1793D0}
 $font
-
 # MEMORY
 ${font xirod:Bold:size=13}${color1}${alignc}MEM$color$font
-${font Droid Sans:size=6}
-MEMORY
-$mem / $memmax
+${font Droid Sans:size=6}MEMORY
+${color2}$mem / $memmax
 $memperc %
 ${color6}${membar}$color
 
-SWAP
-$swap / $swapmax 
-$swapperc %
-${color6}${swapbar}$color
-
-
+#SWAP
+#$swap / $swapmax 
+#$swapperc %
+#${color6}${swapbar}$color
 
 ## HDD
 ${font xirod:Bold:size=12}${color1}${alignc}DISK$font$color
-
 ${color5}/dev/sda
 ${font Droid Sans Mono:size=7}${color6}Read:$diskio_read
 Write:$diskio_write${color}
@@ -138,11 +142,9 @@ ${color6}${fs_bar /}$color
 #${color5}${fs_used /home} / ${fs_size /home} $alignr ${fs_used_perc /home} %$color
 #${color6}${fs_bar 14,450 /home}$color$font
 
-
 ## NETWORK
 ${font xirod:Bold:size=14}${color1}${alignc}NET$color$font
-${font Droid Sans:size=6}
-Int:  $gw_iface
+${font Droid Sans:size=6}Int:  $gw_iface
 #Public IP${alignr} NOPE;)
 #${execi 3600 wget -O - http://ip.tupeux.com | tail}
 #Gateway IP #${alignr}$gw_ip
@@ -153,7 +155,7 @@ Packets
 In:${tcp_portmon 1 32767 count}  ${alignr}Out: ${tcp_portmon 32768 61000 count}
 Up: ${alignr}${color green}${upspeed eno1}/s$color
 Total: ${alignr}${color green}${totalup eno1}$color
-${upspeedgraph eno1 33,70 00ff00 00ff00}
+${upspeedgraph eno1 33,79 00ff00 00ff00}
 Down: ${alignr}${color red}${downspeed eno1}/s$color
 Total: ${alignr}${color red}${totaldown eno1}$color
-${downspeedgraph eno1 33,70 ff0000 ff0000}
+${downspeedgraph eno1 33,79 ff0000 ff0000}

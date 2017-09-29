@@ -377,7 +377,7 @@ function theme.at_screen_connect(s)
     }
 
 	-- Create the vertical wibox
-    s.myverticalwibox = awful.wibar({ position = "left", screen = s, width = 75, bg = theme.bg_normal, fg = theme.fg_normal })
+    s.myverticalwibox = awful.wibar({ position = "left", screen = s, width = 85, bg = theme.bg_normal, fg = theme.fg_normal })
 
     -- Add widgets to the wibox
     s.myverticalwibox:setup {

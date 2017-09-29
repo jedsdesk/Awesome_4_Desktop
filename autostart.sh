@@ -7,9 +7,9 @@ function run {
   fi
 }
 
-run "megasync"
-run "dropbox"
-run "insync start"
+#run "megasync"
+#run "dropbox"
+#run "insync start"
 run "compton"
 run "/usr/bin/redshift"
 run "urxvtd -q -f -o"
