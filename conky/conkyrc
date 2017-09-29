@@ -64,7 +64,7 @@ TEXT
 #${font xirod:Bold:size=10}${color1}${alignc}ARCH${color}$font
 
 # SYS
-${color2}Uptime: $color$alignr $uptime
+${font Droid Sans Mono:size=6}${color2}Uptime:${font Droid Sans Mono:size=7}$color$alignr$uptime
 #User(s) $alignr $user_names
 #Active Consoles $alignr $user_terms
 ${font Droid Sans Mono:size=7}${color1}$kernel $alignr $machine
@@ -133,11 +133,11 @@ $color6${cpugraph cpu6 20,38 1793D0 1793D0} ${alignr}${cpugraph cpu7 20,38 1793D
 
 
 # MEMORY
-${image /home/msjche/.config/awesome/conky/ram.png -p 23,730 -s 35x17 }
+${image /home/msjche/.config/awesome/conky/ram.png -p 23,737 -s 35x17 }
 #${font xirod:Bold:size=13}${color1}${alignc}MEM$color$font
 #${font Droid Sans:size=7}MEMORY
 ${color2}$mem / $memmax
-$memperc %
+$color1$alignr$memperc %
 ${color1}${membar}$color
 ${voffset -12}${color6}${execbar echo 0}
 
