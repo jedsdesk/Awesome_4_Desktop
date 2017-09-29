@@ -39,7 +39,7 @@ gap_x 0
 border_inner_margin 2
 draw_outline no
 draw_borders no
-draw_graph_borders no
+#draw_graph_borders no
 
 maximum_width 79
 minimum_height 2500
@@ -57,7 +57,7 @@ color2 8C8C8C
 color3 ABABAB
 color4 C9C9C9
 color5 DEDEDE
-color6 757575
+color6 121212
 
 TEXT
 #${image /home/msjche/.config/awesome/conky/arch.png -s 70x60 }
@@ -76,9 +76,8 @@ ${color2}Temp: $color${exec sensors | grep Core\ 3 | awk '{print $3}'}
 
 
 ${image /home/msjche/.config/awesome/conky/pacman.png -p 13,58 -s 50x50 }
-${font Droid Sans Mono:size=7}${color2}Pacman: 		 $color1${execp cat /tmp/off.updates | wc -l}
-${font Droid Sans Mono:size=7}${color2}AUR:    		 $color1${execp cat /tmp/aur.updates | wc -l}$color
-
+${font Droid Sans Mono:size=8}${color2}Pacman: 	$color1${execp cat /tmp/off.updates | wc -l}
+${font Droid Sans Mono:size=8}${color2}AUR:    	$color1${execp cat /tmp/aur.updates | wc -l}$color
 
 
 # NVIDIA
@@ -88,62 +87,95 @@ ${font Droid Sans Mono:size=7}${color2}RAM: $alignr$color ${nvidia membwutil}%
 ${font Droid Sans Mono:size=7}${color2}VIDEO: $alignr$color ${nvidia videoutil}%
 ${font Droid Sans Mono:size=7}${color2}PCIe: $alignr$color ${nvidia pcieutil}%
 
-# CPU
-${font xirod:Bold:size=14}${color1}${alignc}CPU$font$color
 
-${color6}${cpubar cpu1}${color}
-${color6}${cpubar cpu2}${color}
-${color6}${cpubar cpu3}${color}
-${color6}${cpubar cpu4}${color}
-${color6}${cpubar cpu5}${color}
-${color6}${cpubar cpu6}${color}
-${color6}${cpubar cpu7}${color}
-${color6}${cpubar cpu8}${color}
-${color6}${cpubar cpu9}${color}
-${color6}${cpubar cpu10}${color}
-${color6}${cpubar cpu11}${color}
-${color6}${cpubar cpu12}${color}
+
+
+# CPU
+${image /home/msjche/.config/awesome/conky/cpu.png -p 23,245 -s 35x35 }
+#${font xirod:Bold:size=14}${color1}${alignc}CPU$font$color
+${color1}${cpubar cpu1}${color}
+${voffset -13}${color6}${execbar echo 0}
+${color1}${cpubar cpu2}${color}
+${voffset -13}${color6}${execbar echo 0}
+${color1}${cpubar cpu3}${color}
+${voffset -13}${color6}${execbar echo 0}
+${color1}${cpubar cpu4}${color}
+${voffset -13}${color6}${execbar echo 0}
+${color1}${cpubar cpu5}${color}
+${voffset -13}${color6}${execbar echo 0}
+${color1}${cpubar cpu6}${color}
+${voffset -13}${color6}${execbar echo 0}
+${color1}${cpubar cpu7}${color}
+${voffset -13}${color6}${execbar echo 0}
+${color1}${cpubar cpu8}${color}
+${voffset -13}${color6}${execbar echo 0}
+${color1}${cpubar cpu9}${color}
+${voffset -13}${color6}${execbar echo 0}
+${color1}${cpubar cpu10}${color}
+${voffset -13}${color6}${execbar echo 0}
+${color1}${cpubar cpu11}${color}
+${voffset -13}${color6}${execbar echo 0}
+${color1}${cpubar cpu12}${color}
+${voffset -13}${color6}${execbar echo 0}
 ${font Droid Sans:size=6}
 ${color2}Core 1${alignr}Core 2
-${cpugraph cpu1 20,38 1793D0 1793D0} ${alignr}${cpugraph cpu2 20,38 1793D0 1793D0}
-Core 3${alignr}Core 4
-${cpugraph cpu3 20,38 1793D0 1793D0} ${alignr}${cpugraph cpu4 20,38 1793D0 1793D0}
-Core 5${alignr}Core 6
-${cpugraph cpu4 20,38 1793D0 1793D0} ${alignr}${cpugraph cpu5 20,38 1793D0 1793D0}
-Core 7${alignr}Core 8
-${cpugraph cpu6 20,38 1793D0 1793D0} ${alignr}${cpugraph cpu7 20,38 1793D0 1793D0}
-Core 9${alignr}Core 10
-${cpugraph cpu6 20,38 1793E0 1793D0} ${alignr}${cpugraph cpu7 20,38 1793D0 1793D0}
-Core 11${alignr}Core 12
-${cpugraph cpu6 20,38 1793D0 1793D0} ${alignr}${cpugraph cpu7 20,38 1793D0 1793D0}
-$font
+$color6${cpugraph cpu1 20,38 1793D0 1793D0} ${alignr}${cpugraph cpu2 20,38 1793D0 1793D0}$color
+${color2}Core 3${alignr}Core 4
+$color6${cpugraph cpu3 20,38 1793D0 1793D0} ${alignr}${cpugraph cpu4 20,38 1793D0 1793D0}$color
+${color2}Core 5${alignr}Core 6
+$color6${cpugraph cpu4 20,38 1793D0 1793D0} ${alignr}${cpugraph cpu5 20,38 1793D0 1793D0}$color
+${color2}Core 7${alignr}Core 8
+$color6${cpugraph cpu6 20,38 1793D0 1793D0} ${alignr}${cpugraph cpu7 20,38 1793D0 1793D0}$color
+${color2}Core 9${alignr}Core 10
+$color6${cpugraph cpu6 20,38 1793E0 1793D0} ${alignr}${cpugraph cpu7 20,38 1793D0 1793D0}$color
+${color2}Core 11${alignr}Core 12
+$color6${cpugraph cpu6 20,38 1793D0 1793D0} ${alignr}${cpugraph cpu7 20,38 1793D0 1793D0}$color
+
+
 # MEMORY
-${font xirod:Bold:size=13}${color1}${alignc}MEM$color$font
-${font Droid Sans:size=6}MEMORY
+${image /home/msjche/.config/awesome/conky/ram.png -p 23,730 -s 35x17 }
+#${font xirod:Bold:size=13}${color1}${alignc}MEM$color$font
+#${font Droid Sans:size=7}MEMORY
 ${color2}$mem / $memmax
 $memperc %
-${color6}${membar}$color
+${color1}${membar}$color
+${voffset -12}${color6}${execbar echo 0}
 
 #SWAP
 #$swap / $swapmax 
 #$swapperc %
-#${color6}${swapbar}$color
+#${color2}${swapbar}$color
+#${voffset -15}${color6}${execbar echo 0}
+
 
 ## HDD
-${font xirod:Bold:size=12}${color1}${alignc}DISK$font$color
+${image /home/msjche/.config/awesome/conky/hard_drive.png -p 23,805 -s 35x35 }
+#${font xirod:Bold:size=12}${color1}${alignc}DISK$font$color
 ${color5}/dev/sda
-${font Droid Sans Mono:size=7}${color6}Read:$diskio_read
+${font Droid Sans Mono:size=7}${color2}Read:$diskio_read
 Write:$diskio_write${color}
 
-${color5}ROOT $font$font
-#${font Droid Sans Mono:size=6.5}${color5}${fs_used /} / ${fs_size /} $alignr ${fs_used_perc /} %$color
-${color6}${fs_bar /}$color
+${color2}/ $font$font$color
+#${font Droid Sans Mono:size=6}${color5}${fs_used /}/${fs_size /}
+${font Droid Sans Mono:size=7}$color1$alignr${fs_used_perc /} %$color
+${color1}${fs_bar /}$color
+${voffset -13}${color6}${execbar echo 0}
+
+${color2}/media/Data$color
+#${font Droid Sans Mono:size=6}${color5} ${fs_used /media/Data}/${fs_size /media/Data}
+${font Droid Sans Mono:size=7}$color1$alignr${fs_used_perc /media/Data} %$color
+${color1}${fs_bar /media/Data}$color
+${voffset -13}${color6}${execbar echo 0}$color
 #${font Droid Sans:bold:size=6}${color5}HOME $font$font$alignr ${fs_type /home}$font
 #${color5}${fs_used /home} / ${fs_size /home} $alignr ${fs_used_perc /home} %$color
-#${color6}${fs_bar 14,450 /home}$color$font
+#${color1}${fs_bar 14,450 /home}$color$font
+#${voffset -13}${color6}${execbar echo 0}
+
+
 
 ## NETWORK
-${font xirod:Bold:size=14}${color1}${alignc}NET$color$font
+${image /home/msjche/.config/awesome/conky/network.png -p 23,1005 -s 35x35 }
+#${font xirod:Bold:size=14}${color1}${alignc}NET$color$font
 ${font Droid Sans:size=6}Int:  $gw_iface
 #Public IP${alignr} NOPE;)
 #${execi 3600 wget -O - http://ip.tupeux.com | tail}
@@ -155,7 +187,7 @@ Packets
 In:${tcp_portmon 1 32767 count}  ${alignr}Out: ${tcp_portmon 32768 61000 count}
 Up: ${alignr}${color green}${upspeed eno1}/s$color
 Total: ${alignr}${color green}${totalup eno1}$color
-${upspeedgraph eno1 33,79 00ff00 00ff00}
+$color6${upspeedgraph eno1 33,79 00ff00 00ff00}
 Down: ${alignr}${color red}${downspeed eno1}/s$color
 Total: ${alignr}${color red}${totaldown eno1}$color
-${downspeedgraph eno1 33,79 ff0000 ff0000}
+$color6${downspeedgraph eno1 33,79 ff0000 ff0000}

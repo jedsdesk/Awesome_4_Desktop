@@ -234,6 +234,13 @@ globalkeys = awful.util.table.join(
               {description = "view next", group = "tag"}),
     awful.key({ modkey, }, "Escape", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
+	
+	-- Tag browsing keyboard
+	awful.key({ modkey, altkey, "Control" }, "h",   awful.tag.viewprev,
+              {description = "view previous", group = "tag"}),
+    awful.key({ modkey, altkey, "Control" }, "l",  awful.tag.viewnext,
+              {description = "view next", group = "tag"}),
+
 
     -- Non-empty tag browsing
     awful.key({ altkey }, "Left", function () lain.util.tag_view_nonempty(-1) end,
