@@ -74,15 +74,15 @@ ${font Droid Sans Mono:size=7}${color1}$kernel $alignr $machine
 #Battery Temp $alignr$acpitemp°C
 ${color2}Temp: $color${exec sensors | grep Core\ 3 | awk '{print $3}'}
 
-${font Droid Sans Mono:size=9}${color1}${alignc}Updates$color
-${font Droid Sans Mono:size=7}${color2}Pacman: 		 $color${execp cat /tmp/off.updates | wc -l}
-${font Droid Sans Mono:size=7}${color2}AUR:    		 $color${execp cat /tmp/aur.updates | wc -l}
 
+${image /home/msjche/.config/awesome/conky/pacman.png -p 13,58 -s 50x50 }
+${font Droid Sans Mono:size=7}${color2}Pacman: 		 $color1${execp cat /tmp/off.updates | wc -l}
+${font Droid Sans Mono:size=7}${color2}AUR:    		 $color1${execp cat /tmp/aur.updates | wc -l}$color
 
 
 
 # NVIDIA
-${image /home/msjche/.config/awesome/conky/NVIDIA.png -p 23,140 -s 35x35 }
+${image /home/msjche/.config/awesome/conky/NVIDIA.png -p 23,135 -s 35x35 }
 ${font Droid Sans Mono:size=7}${color2}GPU: $alignr$color ${nvidia gpuutil}%
 ${font Droid Sans Mono:size=7}${color2}RAM: $alignr$color ${nvidia membwutil}%
 ${font Droid Sans Mono:size=7}${color2}VIDEO: $alignr$color ${nvidia videoutil}%
@@ -104,7 +104,7 @@ ${color6}${cpubar cpu10}${color}
 ${color6}${cpubar cpu11}${color}
 ${color6}${cpubar cpu12}${color}
 ${font Droid Sans:size=6}
-${color2}Core 2${alignr}Core 2
+${color2}Core 1${alignr}Core 2
 ${cpugraph cpu1 20,38 1793D0 1793D0} ${alignr}${cpugraph cpu2 20,38 1793D0 1793D0}
 Core 3${alignr}Core 4
 ${cpugraph cpu3 20,38 1793D0 1793D0} ${alignr}${cpugraph cpu4 20,38 1793D0 1793D0}
