@@ -76,8 +76,8 @@ ${color2}Temp: $color${exec sensors | grep Core\ 3 | awk '{print $3}'}
 
 
 ${image /home/msjche/.config/awesome/conky/pacman.png -p 13,58 -s 50x50 }
-${font Droid Sans Mono:size=8}${color2}Pacman: 	$color1${execp cat /tmp/off.updates | wc -l}
-${font Droid Sans Mono:size=8}${color2}AUR:    	$color1${execp cat /tmp/aur.updates | wc -l}$color
+${font Droid Sans Mono:size=8}${color2}Pacman: 	$color1${font Droid Sans Mono:size=8:bold}${execp cat /tmp/off.updates | wc -l}
+${font Droid Sans Mono:size=8}${color2}AUR:    	$color1${font Droid Sans Mono:size=8:bold}${execp cat /tmp/aur.updates | wc -l}$color
 
 
 # NVIDIA
@@ -150,7 +150,7 @@ ${voffset -12}${color6}${execbar echo 0}
 ## HDD
 ${image /home/msjche/.config/awesome/conky/hard_drive.png -p 23,795 -s 35x35 }
 #${font xirod:Bold:size=12}${color1}${alignc}DISK$font$color
-${color5}/dev/sda
+$font${color1}/dev/sda
 ${font Droid Sans Mono:size=7}${color2}Read:$diskio_read
 Write:$diskio_write${color}
 
@@ -175,18 +175,21 @@ ${voffset -13}${color6}${execbar echo 0}$color
 ## NETWORK
 ${image /home/msjche/.config/awesome/conky/network.png -p 23,993 -s 35x35 }
 #${font xirod:Bold:size=14}${color1}${alignc}NET$color$font
-${font Droid Sans:size=6}Int:  $gw_iface
+${font Droid Sans:size=7}${color2}Int:$alignr${color1}$gw_iface$font
+${color2}VPN:$alignr${font Droid Sans:size=8:bold}${if_up tun0}${color green}Up${else}${color red}Down$endif$font$color
+${color2}UFW: $alignr$color1${execi 30 systemctl is-active ufw}
 #Public IP${alignr} NOPE;)
 #${execi 3600 wget -O - http://ip.tupeux.com | tail}
 #Gateway IP #${alignr}$gw_ip
 #DNS #${alignr}$nameserver
 #TOR Status ${alignr}${if_running tor} Active${else}Disabled${endif}
-UFW ${alignr}${exec systemctl status ufw | grep active | cut -c 11-19}
-Packets
-In:${tcp_portmon 1 32767 count}  ${alignr}Out: ${tcp_portmon 32768 61000 count}
-Up: ${alignr}${color green}${upspeed eno1}/s$color
-Total: ${alignr}${color green}${totalup eno1}$color
-$color6${upspeedgraph eno1 33,79 00ff00 00ff00}
-Down: ${alignr}${color red}${downspeed eno1}/s$color
-Total: ${alignr}${color red}${totaldown eno1}$color
+#${color2}UFW $color1${alignr}${exec systemctl status ufw | grep active | cut -c 11-19}$color
+${color3}Packets
+${color2}In: $color1${tcp_portmon 1 32767 count} $alignr$color2${alignr}Out: $color1${tcp_portmon 32768 61000 count}$color
+
+${color2}Up: ${alignr}${color green}${upspeed eno1}/s$color
+${color2}Total: ${alignr}${color green}${totalup eno1}$color
+$color6${upspeedgraph eno1 33,79 00ff00 00ff00}$color
+${color2}Down: ${alignr}${color red}${downspeed eno1}/s$color
+${color2}Total: ${alignr}${color red}${totaldown eno1}$color
 $color6${downspeedgraph eno1 33,79 ff0000 ff0000}
