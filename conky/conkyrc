@@ -57,7 +57,7 @@ color2 8C8C8C
 color3 ABABAB
 color4 C9C9C9
 color5 DEDEDE
-color6 121212
+color6 565656
 
 TEXT
 #${image /home/msjche/.config/awesome/conky/arch.png -s 70x60 }
